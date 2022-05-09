@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils3.c                             :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 17:16:48 by ilandols          #+#    #+#             */
-/*   Updated: 2022/05/07 18:24:23 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/05/05 17:16:58 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 	int		j;
 
-	if (s1 == NULL)
-		size1 = 0;
-	else
-		size1 = strlen(s1);
+	size1 = strlen(s1);
 	size2 = strlen(s2);
 	result = malloc((size1 + size2 + 1) * sizeof(char));
 	i = 0;
