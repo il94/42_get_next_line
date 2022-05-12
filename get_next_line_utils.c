@@ -12,11 +12,10 @@
 
 #include "get_next_line.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char const *s2, int size2)
 {
 	char	*result;
 	int		size1;
-	int		size2;
 	int		i;
 	int		j;
 
@@ -24,7 +23,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		size1 = 0;
 	else
 		size1 = strlen(s1);
-	size2 = strlen(s2) - 2;
 	result = malloc((size1 + size2 + 1) * sizeof(char));
 	i = 0;
 	j = 0;
@@ -40,5 +38,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		j++;
 	}
 	result[i] = '\0';
+	if (s1)
+		free(s1);
 	return (result);
 }

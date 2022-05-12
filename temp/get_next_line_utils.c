@@ -1,36 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/11 09:45:36 by ilandols          #+#    #+#             */
-/*   Updated: 2022/05/11 11:47:21 by ilandols         ###   ########.fr       */
+/*   Created: 2022/05/05 17:16:48 by ilandols          #+#    #+#             */
+/*   Updated: 2022/05/11 11:45:28 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	main(void)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		fd;
-	int		i = 1;
-	char	*str;
-	char	*buffer[BUFFER_SIZE];
+	char	*result;
+	int		size1;
+	int		size2;
+	int		i;
+	int		j;
 
-	fd = open("./file", O_RDONLY);
-	if (fd > 0)
+	if (s1 == NULL)
+		size1 = 0;
+	else
+		size1 = strlen(s1);
+	size2 = strlen(s2) - 2;
+	result = malloc((size1 + size2 + 1) * sizeof(char));
+	i = 0;
+	j = 0;
+	while (i < size1)
 	{
-		while (i - 1 < 11)
-		{
-			// str = get_next_line(fd);
-			printf("%ld\n", read(fd, buffer, BUFFER_SIZE));
-			printf("RESULT Line %d = %s", i, str);
-			i++;
-			free(str);
-		}
-		close(fd);
+		result[i] = s1[i];
+		i++;
 	}
-	return (0);
+	while (i < size1 + size2)
+	{
+		result[i] = s2[j];
+		i++;
+		j++;
+	}
+	result[i] = '\0';
+	return (result);
 }

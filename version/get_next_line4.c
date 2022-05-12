@@ -36,7 +36,7 @@ void	remove_line_in_stock(char *stock, int size_line)
 	int	i;
 
 	i = 0;
-	while (stock[size_line + i])
+	while (stock[size_line + i + 1])
 	{
 		stock[i] = stock[size_line + i + 1];
 		i++;
@@ -77,25 +77,14 @@ char	*get_next_line(int fd)
 	char		*result;
 	int			size_read;
 
-	if (fd < 0 || fd > 1024)
-		return (NULL);
 	size_read = BUFFER_SIZE;
 	while (!(check_end_of_line(stock, size_read)))
 	{
 		size_read = read(fd, buffer, BUFFER_SIZE);
-		// printf("read = %s", buffer);
-		// printf("size_read = %d\n", size_read);
-		// printf("size_total = %ld\n", strlen(buffer));
-		// printf("buffer = %s\n\n", buffer);
 		if (size_read <= 0)
 			break ;
-		stock = ft_strjoin(stock, buffer, size_read);
-	// printf("stock = %s\n\n", stock);
-
+		stock = ft_strjoin(stock, buffer);
 	}
-	// printf("stock = %s\n\n", stock);
 	result = get_line(stock);
-	if (stock[0] == '\0' && size_read == 0)
-		free(stock);
 	return (result);
 }
