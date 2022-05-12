@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/11 09:45:36 by ilandols          #+#    #+#             */
+/*   Updated: 2022/05/11 11:47:21 by ilandols         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "get_next_line.h"
 
 int	main(void)
 {
@@ -11,7 +24,7 @@ int	main(void)
 		while (i - 1 < 11)
 		{
 			str = get_next_line(fd);
-			printf("Line %d = %s", i++, str);
+			printf("RESULT Line %d = %s", i++, str);
 			free(str);
 		}
 		close(fd);

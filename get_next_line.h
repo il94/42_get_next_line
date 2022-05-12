@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 12:58:34 by ilandols          #+#    #+#             */
-/*   Updated: 2022/05/09 11:58:53 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/05/11 10:16:09 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@
 # include <string.h>
 
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*get_next_line(int fd);
 
 #endif
