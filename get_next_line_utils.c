@@ -23,7 +23,13 @@ char	*ft_strjoin(char *s1, char const *s2, int size2)
 		size1 = 0;
 	else
 		size1 = strlen(s1);
-	result = malloc((size1 + size2 + 1) * sizeof(char));
+	if (size2 > 0 || size1 >= 0)
+		result = malloc((size1 + size2 + 1) * sizeof(char));
+	else
+	{
+		free(s1);
+		return (NULL);
+	}
 	i = 0;
 	j = 0;
 	while (i < size1)

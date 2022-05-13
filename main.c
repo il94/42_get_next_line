@@ -17,18 +17,18 @@ int	main(void)
 	int		fd;
 	int		i = 1;
 	char	*str;
-	char	*buffer[BUFFER_SIZE];
 
 	fd = open("./file", O_RDONLY);
 	if (fd > 0)
 	{
-		while (i - 1 < 11)
+		while (i - 1 < 1)
 		{
-			// str = get_next_line(fd);
-			printf("%ld\n", read(fd, buffer, BUFFER_SIZE));
-			printf("RESULT Line %d = %s", i, str);
+			str = get_next_line(fd);
+			printf("RESULT Line %d = %p", i, str);
+			if (i <= 14)
+				free(str);
 			i++;
-			free(str);
+
 		}
 		close(fd);
 	}
