@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 09:45:36 by ilandols          #+#    #+#             */
-/*   Updated: 2022/05/11 11:47:21 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/05/15 07:44:24 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,18 @@
 int	main(void)
 {
 	int		fd;
-	int		i = 1;
+	int		i = 0;
+	int		number_of_lines = 1;
 	char	*str;
 
 	fd = open("./file", O_RDONLY);
 	if (fd > 0)
 	{
-		while (i - 1 < 1)
+		while (i < number_of_lines)
 		{
 			str = get_next_line(fd);
-			printf("RESULT Line %d = %p", i, str);
-			if (i <= 14)
+			printf("RESULT Line %d = %s", i + 1, str);
+			if (i < number_of_lines)
 				free(str);
 			i++;
 

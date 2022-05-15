@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 12:58:34 by ilandols          #+#    #+#             */
-/*   Updated: 2022/05/11 10:16:09 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/05/15 04:27:44 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 # include <fcntl.h>
 # include <string.h>
 
-char	*ft_strjoin(char *s1, char const *s2, int size2);
+char	*ft_strjoin(char *stock, char const *buffer, int size_buffer);
+char	*ft_strchr(const char *s, int c);
 char	*get_next_line(int fd);
 
 #endif
