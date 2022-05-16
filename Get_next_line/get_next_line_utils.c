@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 17:16:48 by ilandols          #+#    #+#             */
-/*   Updated: 2022/05/16 16:27:24 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/05/15 04:27:28 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ char	*ft_strjoin(char *stock, char const *buffer, int size_buffer)
 	}
 	else
 		size_stock = strlen(stock);
+	// printf("size_stock = %d\n", size_stock);
+	// printf("size_read = %d\n\n", size_buffer);
 	if (size_buffer > 0 || size_stock > 0)
 	{
 		result = malloc((size_stock + size_buffer + 1) * sizeof(char));
@@ -33,6 +35,7 @@ char	*ft_strjoin(char *stock, char const *buffer, int size_buffer)
 	}
 	else
 	{
+		// printf("STRJOIN \n");
 		free(stock);
 		return (NULL);
 	}
