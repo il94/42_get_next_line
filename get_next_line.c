@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 13:01:42 by ilandols          #+#    #+#             */
-/*   Updated: 2022/05/15 06:55:10 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/05/16 15:14:35 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,10 +121,10 @@ char	*get_next_line(int fd)
 						// printf("last = %d\n", last);
 
 			// printf("stock = %s\n", stock);
-			if (stock[0])
+			// if (stock[0])
 			{
 				// printf("IF 2.5\n");				
-				free(stock);
+				// free(stock);
 			}
 		}
 		else
@@ -132,6 +132,7 @@ char	*get_next_line(int fd)
 			// printf("ELSE 2\n");
 			// free(stock);
 						// printf("last = %d\n", last);
+		// printf("stock = %s\n\n", stock);
 
 			return (NULL);
 		}

@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 09:45:36 by ilandols          #+#    #+#             */
-/*   Updated: 2022/05/15 07:44:24 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/05/16 15:05:02 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(void)
 {
 	int		fd;
 	int		i = 0;
-	int		number_of_lines = 1;
+	int		number_of_lines = 15;
 	char	*str;
 
 	fd = open("./file", O_RDONLY);
