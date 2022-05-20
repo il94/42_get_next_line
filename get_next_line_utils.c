@@ -5,79 +5,102 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/05 17:16:48 by ilandols          #+#    #+#             */
-/*   Updated: 2022/05/16 16:27:24 by ilandols         ###   ########.fr       */
+/*   Created: 2022/05/20 11:08:54 by ilandols          #+#    #+#             */
+/*   Updated: 2022/05/20 15:49:01 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strjoin(char *stock, char const *buffer, int size_buffer)
+void	clean_line(char *line, char *buffer)
 {
-	char	*result;
-	int		size_stock;
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
-	if (stock == NULL)
-	{
-		size_stock = 0;
-	}
-	else
-		size_stock = strlen(stock);
-	if (size_buffer > 0 || size_stock > 0)
-	{
-		result = malloc((size_stock + size_buffer + 1) * sizeof(char));
-		if (!result)
-			return (NULL);
-	}
-	else
-	{
-		free(stock);
-		return (NULL);
-	}
 	i = 0;
 	j = 0;
-	while (i < size_stock)
+	while (line[i] != '\n' && line[i])
 	{
-		result[i] = stock[i];
-		i++;
+		// printf("i = %d\n", i);
+		i++;		
 	}
-	while (i < size_stock + size_buffer)
+	if (line[i] == '\n')
 	{
-		result[i] = buffer[j];
+		// printf("i2 = %d\n", i);
+		i++;		
+	}
+	while (line[i])
+	{
+		// printf("i3 = %d\n", i);
+		buffer[j] = line[i];
+		line[i] = '\0';
 		i++;
 		j++;
 	}
-	result[i] = '\0';
-	free(stock);
-	return (result);
+	buffer[j] = '\0';
 }
 
-static size_t	get_size(const char *s)
+int	is_end_of_line(char *str, int size_read)
+{
+	if (str == NULL || !ft_strchr_gnl(str, '\n') || size_read != BUFFER_SIZE)
+		return (0);
+	else
+	{
+				// printf("debug\n");
+		return (1);
+
+	}
+}
+
+size_t	ft_strlen_gnl(const char *s)
 {
 	int	i;
 
 	i = 0;
+	if (!s)
+		return (0);
 	while (s[i])
 		i++;
 	return (i);
 }
 
-char	*ft_strchr(const char *s, int c)
+int	ft_strchr_gnl(char *s, int c)
 {
 	int	i;
 
 	i = 0;
-	if (c == 0)
-		return ((char *)&s[get_size(s)]);
-	else if (c > 256)
-		c -= 256;
 	while (s[i])
 	{
 		if (s[i] == c)
-			return ((char *)&s[i]);
+			return (1);
 		i++;
 	}
-	return (NULL);
+	return (0);
+}
+
+char	*ft_strjoin_gnl(char *s1, char *s2)
+{
+	char	*result;
+	int		i;
+	int		j;
+
+	result = malloc((ft_strlen_gnl(s1) + ft_strlen_gnl(s2) + 1) * sizeof(char));
+	if (!result)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s1 && s1[i])
+	{
+		result[i] = s1[i];
+		i++;
+	}
+	while (s2[j])
+	{
+		result[i] = s2[j];
+		i++;
+		j++;
+	}
+	result[i] = '\0';
+	free(s1);
+	return (result);
 }

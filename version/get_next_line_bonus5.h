@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/11 09:45:36 by ilandols          #+#    #+#             */
-/*   Updated: 2022/05/20 15:42:09 by ilandols         ###   ########.fr       */
+/*   Created: 2022/05/18 15:00:16 by ilandols          #+#    #+#             */
+/*   Updated: 2022/05/18 15:41:11 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# include <stdio.h>
+# include <stdlib.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+# include <unistd.h>
+# include <stdio.h>
 
-int	main(void)
-{
-	int		fd;
-	int		i = 0;
-	int		number_of_lines = 12;
-	char	*str;
+char	*ft_strjoin_gnl(char *stock, char const *buffer, int size_buffer);
+int		ft_strchr_gnl(const char *s, int c);
+char	*get_next_line(int fd);
 
-	fd = open("./file", O_RDONLY);
-	if (fd > 0)
-	{
-		while (i < number_of_lines)
-		{
-			str = get_next_line(fd);
-			printf("RESULT Line %d = |%s|", i + 1, str);
-			if (i < number_of_lines)
-				free(str);
-			i++;
-		}
-		close(fd);
-	}
-	return (0);
-}
+#endif
