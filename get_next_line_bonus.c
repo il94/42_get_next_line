@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:05:03 by ilandols          #+#    #+#             */
-/*   Updated: 2022/05/22 18:32:43 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/05/22 18:33:42 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
-	static char	buffer[BUFFER_SIZE + 1];
+	static char	buffer[FOPEN_MAX][BUFFER_SIZE + 1];
 	char		*line;
 	int			size_read;
 
-	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || fd > FOPEN_MAX || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (NULL);
 	line = NULL;
-	line = ft_strjoin_gnl(line, buffer);
+	line = ft_strjoin_gnl(line, buffer[fd]);
 	size_read = BUFFER_SIZE;
 	while (!(is_end_of_line(line) || size_read != BUFFER_SIZE))
 	{
-		size_read = read(fd, buffer, BUFFER_SIZE);
+		size_read = read(fd, buffer[fd], BUFFER_SIZE);
 		if (size_read < 0)
 			return (NULL);
-		buffer[size_read] = '\0';
-		line = ft_strjoin_gnl(line, buffer);
+		buffer[fd][size_read] = '\0';
+		line = ft_strjoin_gnl(line, buffer[fd]);
 	}
 	if (!line[0])
 	{
@@ -37,6 +37,6 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	else
-		get_line(line, buffer);
+		get_line(line, buffer[fd]);
 	return (line);
 }

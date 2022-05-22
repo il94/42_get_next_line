@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line5.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
+/*   By: ilyes <ilyes@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 13:01:42 by ilandols          #+#    #+#             */
-/*   Updated: 2022/05/20 10:46:31 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/05/21 23:46:25 by ilyes            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line5.h"
 
 int	is_end_of_line(char *str, int size_read)
 {
@@ -90,7 +90,7 @@ char	*get_result(char *stash, int size_read)
 	}
 	if (!stash[0])
 	{
-		printf("debug\n");
+		// printf("debug\n");
 		free(stash);
 	}
 	return (result);
